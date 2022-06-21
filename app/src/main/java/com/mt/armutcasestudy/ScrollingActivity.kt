@@ -22,7 +22,6 @@ class ScrollingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScrollingBinding
     private val viewModel: ServiceViewModel by viewModels()
     private lateinit var serviceAdapter: ServiceAdapter
-    private lateinit var homeAdapter: HomeAdapter
     private lateinit var popularAdapter: PopularAdapter
     private lateinit var postsAdapter: PostsAdapter
 

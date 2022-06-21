@@ -1,7 +1,7 @@
 package com.mt.armutcasestudy.di
 
 import com.mt.armutcasestudy.api.ApiService
-import com.mt.armutcasestudy.helper.ServiceConstants
+import com.mt.armutcasestudy.helper.ApiConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
     @Provides
-    fun provideBaseUrl()= ServiceConstants.BASE_URL
+    fun provideBaseUrl()= ApiConstants.BASE_URL
 
     @Provides
     @Singleton

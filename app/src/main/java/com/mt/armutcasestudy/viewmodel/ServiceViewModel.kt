@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mt.armutcasestudy.model.Home
 import com.mt.armutcasestudy.model.Service
-import com.mt.armutcasestudy.repository.ServiceRepository
+import com.mt.armutcasestudy.repository.ApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,7 +16,7 @@ import javax.inject.Inject
 class ServiceViewModel
 @Inject
 constructor
-    (private val repository: ServiceRepository) : ViewModel() {
+    (private val repository: ApiRepository) : ViewModel() {
     private val _response= MutableLiveData<Service>()
     val responseService:LiveData<Service> get()=_response
     private val _homeResponse=MutableLiveData<Home>()

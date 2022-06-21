@@ -3,7 +3,7 @@ package com.mt.armutcasestudy.repository
 import com.mt.armutcasestudy.api.ApiService
 import javax.inject.Inject
 
-class ServiceRepository
+class ApiRepository
 @Inject
 constructor(private val apiService:ApiService)
 {
