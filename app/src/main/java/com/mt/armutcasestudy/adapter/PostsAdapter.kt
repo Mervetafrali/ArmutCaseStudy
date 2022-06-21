@@ -7,27 +7,28 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.mt.armutcasestudy.databinding.ServiceLayoutAdapterBinding
+import com.mt.armutcasestudy.model.Post
 
 import com.mt.armutcasestudy.model.ServiceItem
 
-class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
+class PostsAdapter: RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: ServiceLayoutAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
-    private val diffCallback = object : DiffUtil.ItemCallback<ServiceItem>() {
-        override fun areItemsTheSame(oldItem: ServiceItem, newItem: ServiceItem): Boolean {
-            return oldItem.id == newItem.id
+    private val diffCallback = object : DiffUtil.ItemCallback<Post>() {
+        override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
+            return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: ServiceItem, newItem: ServiceItem): Boolean {
+        override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
             return newItem == oldItem
         }
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
-    var services: List<ServiceItem>
+    var posts: List<Post>
         get() = differ.currentList
         set(value) {
             differ.submitList(value)
@@ -42,10 +43,10 @@ class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentService = services[position]
+        val currentService = posts[position]
 
         holder.binding.apply {
-            itemName.text = currentService.name
+            itemName.text = currentService.title
 
             itemImg.load(currentService.image_url) {
                 crossfade(true)
@@ -54,6 +55,6 @@ class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
         }
     }
 
-    override fun getItemCount() = services.size
+    override fun getItemCount() = posts.size
 
 }

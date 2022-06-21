@@ -7,27 +7,28 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.mt.armutcasestudy.databinding.ServiceLayoutAdapterBinding
+import com.mt.armutcasestudy.model.Popular
 
 import com.mt.armutcasestudy.model.ServiceItem
 
-class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
+class PopularAdapter: RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: ServiceLayoutAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
-    private val diffCallback = object : DiffUtil.ItemCallback<ServiceItem>() {
-        override fun areItemsTheSame(oldItem: ServiceItem, newItem: ServiceItem): Boolean {
+    private val diffCallback = object : DiffUtil.ItemCallback<Popular>() {
+        override fun areItemsTheSame(oldItem: Popular, newItem: Popular): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: ServiceItem, newItem: ServiceItem): Boolean {
+        override fun areContentsTheSame(oldItem: Popular, newItem: Popular): Boolean {
             return newItem == oldItem
         }
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
-    var services: List<ServiceItem>
+    var popular: List<Popular>
         get() = differ.currentList
         set(value) {
             differ.submitList(value)
@@ -42,7 +43,7 @@ class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentService = services[position]
+        val currentService = popular[position]
 
         holder.binding.apply {
             itemName.text = currentService.name
@@ -54,6 +55,6 @@ class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
         }
     }
 
-    override fun getItemCount() = services.size
+    override fun getItemCount() = popular.size
 
 }

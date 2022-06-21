@@ -8,4 +8,6 @@ class ServiceRepository
 constructor(private val apiService:ApiService)
 {
     suspend fun getServices()=apiService.getServices()
+
+    suspend fun getHome()=apiService.getHome()
 }

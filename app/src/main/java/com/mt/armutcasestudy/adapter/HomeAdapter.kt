@@ -7,27 +7,28 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.mt.armutcasestudy.databinding.ServiceLayoutAdapterBinding
+import com.mt.armutcasestudy.model.Home
 
 import com.mt.armutcasestudy.model.ServiceItem
 
-class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
+class HomeAdapter: RecyclerView.Adapter<HomeAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: ServiceLayoutAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
-    private val diffCallback = object : DiffUtil.ItemCallback<ServiceItem>() {
-        override fun areItemsTheSame(oldItem: ServiceItem, newItem: ServiceItem): Boolean {
-            return oldItem.id == newItem.id
+    private val diffCallback = object : DiffUtil.ItemCallback<Home>() {
+        override fun areItemsTheSame(oldItem: Home, newItem: Home): Boolean {
+            return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: ServiceItem, newItem: ServiceItem): Boolean {
+        override fun areContentsTheSame(oldItem: Home, newItem: Home): Boolean {
             return newItem == oldItem
         }
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
-    var services: List<ServiceItem>
+    var home: List<Home>
         get() = differ.currentList
         set(value) {
             differ.submitList(value)
@@ -42,18 +43,18 @@ class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentService = services[position]
+        val currentService = home[position]
 
-        holder.binding.apply {
+       /* holder.binding.apply {
             itemName.text = currentService.name
 
             itemImg.load(currentService.image_url) {
                 crossfade(true)
                 crossfade(1000)
             }
-        }
+        }*/
     }
 
-    override fun getItemCount() = services.size
+    override fun getItemCount() = home.size
 
 }
