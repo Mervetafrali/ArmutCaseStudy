@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mt.armutcasestudy.adapter.HomeAdapter
 import com.mt.armutcasestudy.adapter.PopularAdapter
 import com.mt.armutcasestudy.adapter.PostsAdapter
 import com.mt.armutcasestudy.adapter.ServiceAdapter
@@ -31,21 +30,19 @@ class ScrollingActivity : AppCompatActivity() {
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        setUpRV()
+        val serviceTitles: Array<String> = resources.getStringArray(R.array.serviceTitles)
+        val serviceImages: Array<String> = resources.getStringArray(R.array.serviceImages)
+        setUpRV(serviceTitles,serviceImages)
 
     }
 
-    private fun setUpRV() {
-        serviceAdapter = ServiceAdapter()
+    private fun setUpRV(serviceTitles: Array<String>, serviceImages: Array<String>) {
+        serviceAdapter = ServiceAdapter(serviceTitles,serviceImages)
         popularAdapter= PopularAdapter()
         postsAdapter = PostsAdapter()
         binding.recyclerView.apply {
             adapter = serviceAdapter
-            layoutManager = LinearLayoutManager(
-                this@ScrollingActivity, LinearLayoutManager.HORIZONTAL,
-                false
-            )
-            setHasFixedSize(true)
+            layoutManager = GridLayoutManager(this@ScrollingActivity, 4)
         }
         binding.recyclerViewPopular.apply {
             adapter=popularAdapter
@@ -63,10 +60,8 @@ class ScrollingActivity : AppCompatActivity() {
             )
             setHasFixedSize(true)
         }
-        viewModel.responseService.observe(this) { listService ->
-            serviceAdapter.services = listService
-        }
         viewModel.responseHome.observe(this) { listService ->
+            serviceAdapter.services = listService.all_services
             popularAdapter.popular=listService.popular
             postsAdapter.posts=listService.posts
             Log.i("tag", listService.popular.toString())

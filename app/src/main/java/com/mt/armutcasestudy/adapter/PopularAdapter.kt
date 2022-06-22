@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.mt.armutcasestudy.databinding.PopularLayoutAdapterBinding
 import com.mt.armutcasestudy.databinding.ServiceLayoutAdapterBinding
 import com.mt.armutcasestudy.model.Popular
 
@@ -13,7 +14,7 @@ import com.mt.armutcasestudy.model.ServiceItem
 
 class PopularAdapter: RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
 
-    inner class MyViewHolder(val binding: ServiceLayoutAdapterBinding) :
+    inner class MyViewHolder(val binding: PopularLayoutAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
@@ -36,7 +37,7 @@ class PopularAdapter: RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            ServiceLayoutAdapterBinding.inflate(
+            PopularLayoutAdapterBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )

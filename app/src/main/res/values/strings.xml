@@ -2,4 +2,9 @@
     <string name="app_name">Hizmet Piş Ağzıma Düş</string>
     <string name="title_main">All services</string>
     <string name="action_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="popular_these_days">Popular these days</string>
+    <string name="posts">Latest from the blog</string>
+    <string name="all_services">All Services</string>
 </resources>

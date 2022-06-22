@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="serviceTitles">
+        <item>Tadilat</item>
+        <item>Temizlik</item>
+        <item>Nakliyat</item>
+        <item>Tamir</item>
+        <item>Özel Ders</item>
+        <item>Sağlık</item>
+        <item>Düğün</item>
+        <item>Diğer</item>
+    </string-array>
+</resources>

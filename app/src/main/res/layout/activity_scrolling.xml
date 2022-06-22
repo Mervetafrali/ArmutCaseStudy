@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -25,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="All Services"
+                android:text="@string/all_services"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
 
@@ -47,15 +46,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Popular these days"
+                android:text="@string/popular_these_days"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewPopular"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/linearLayoutPost"
             android:layout_width="match_parent"
@@ -68,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Posts"
+                android:text="@string/posts"
                 android:textColor="@color/black"
                 android:textSize="25sp" />
             <androidx.recyclerview.widget.RecyclerView

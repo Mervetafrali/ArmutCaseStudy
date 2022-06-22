@@ -1,19 +1,20 @@
 package com.mt.armutcasestudy.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.mt.armutcasestudy.databinding.ServiceLayoutAdapterBinding
+import com.mt.armutcasestudy.databinding.PostsLayoutAdapterBinding
 import com.mt.armutcasestudy.model.Post
 
-import com.mt.armutcasestudy.model.ServiceItem
 
 class PostsAdapter: RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
 
-    inner class MyViewHolder(val binding: ServiceLayoutAdapterBinding) :
+    inner class MyViewHolder(val binding: PostsLayoutAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
 
 
@@ -36,23 +37,30 @@ class PostsAdapter: RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            ServiceLayoutAdapterBinding.inflate(
+            PostsLayoutAdapterBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentService = posts[position]
+        val currentPost = posts[position]
 
         holder.binding.apply {
-            itemName.text = currentService.title
+            itemName.text = currentPost.title
 
-            itemImg.load(currentService.image_url) {
+            itemImg.load(currentPost.image_url) {
                 crossfade(true)
                 crossfade(1000)
             }
         }
+       /* holder.itemView.setOnClickListener {
+           // val direction = FragmentN
+
+            intent = Intent(this@PostsAdapter, ListViewImage::class.java)
+            startActivity(intent)
+            finish()
+        }*/
     }
 
     override fun getItemCount() = posts.size

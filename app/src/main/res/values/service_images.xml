@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="serviceImages">
+        <item>ic_tadilat</item>
+        <item>ic_temizlik</item>
+        <item>ic_nakliyat</item>
+        <item>ic_tamir</item>
+        <item>ic_ozel_ders</item>
+        <item>ic_saglik</item>
+        <item>ic_dugun</item>
+        <item>ic_diger</item>
+    </string-array>
+</resources>
