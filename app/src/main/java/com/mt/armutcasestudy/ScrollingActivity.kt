@@ -40,7 +40,7 @@ class ScrollingActivity : AppCompatActivity() {
     }
 
     private fun setUpRV(serviceTitles: Array<String>, serviceImages: Array<String>) {
-        serviceAdapter = ServiceAdapter(serviceTitles,serviceImages)
+        serviceAdapter = ServiceAdapter(this,serviceTitles,serviceImages)
         popularAdapter= PopularAdapter()
         postsAdapter = PostsAdapter()
         binding.recyclerView.apply {
