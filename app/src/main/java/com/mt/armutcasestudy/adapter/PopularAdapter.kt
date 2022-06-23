@@ -56,11 +56,6 @@ class PopularAdapter: RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
                 crossfade(1000)
             }
         }
-        val gson= Gson()
-        holder.itemView.setOnClickListener{
-            mView ->
-                Log.i("deneme",currentService.toString())
-        }
     }
 
     override fun getItemCount() = popular.size

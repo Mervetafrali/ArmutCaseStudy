@@ -16,6 +16,7 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+        supportActionBar?.hide()
         val gson = Gson()
         val serviceItem:ServiceItem= gson.fromJson(intent.getStringExtra("service"),ServiceItem::class.java)
         val imageView: ImageView = findViewById(R.id.img)

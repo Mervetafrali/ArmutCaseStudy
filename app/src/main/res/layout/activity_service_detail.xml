@@ -168,7 +168,7 @@
                     android:textSize="30sp"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:background="@drawable/circle"
+                    android:background="@drawable/rounded_searchbar"
                     android:layout_marginBottom="10dp"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -192,7 +192,7 @@
                     android:textSize="30sp"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:background="@drawable/circle"
+                    android:background="@drawable/rounded_searchbar"
                     android:layout_marginBottom="10dp"/>
                 <TextView
                     android:layout_width="match_parent"
@@ -216,7 +216,7 @@
                     android:textSize="30sp"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:background="@drawable/circle"
+                    android:background="@drawable/rounded_searchbar"
                     android:layout_marginBottom="10dp"/>
                 <TextView
                     android:layout_width="match_parent"

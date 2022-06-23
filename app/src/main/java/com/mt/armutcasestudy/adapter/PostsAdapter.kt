@@ -1,6 +1,8 @@
 package com.mt.armutcasestudy.adapter
 
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
@@ -10,9 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.mt.armutcasestudy.databinding.PostsLayoutAdapterBinding
 import com.mt.armutcasestudy.model.Post
+import retrofit2.http.HTTP
 
 
-class PostsAdapter: RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
+class PostsAdapter(var mContext: Context): RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: PostsLayoutAdapterBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -48,19 +51,31 @@ class PostsAdapter: RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
 
         holder.binding.apply {
             itemName.text = currentPost.title
+            itemCategoryName.text=currentPost.category
 
             itemImg.load(currentPost.image_url) {
                 crossfade(true)
                 crossfade(1000)
             }
         }
-       /* holder.itemView.setOnClickListener {
-           // val direction = FragmentN
+        holder.itemView.setOnClickListener {
+            val HTTP="http://"
+            val HTTPS="https://"
+            var postUrl=currentPost.link
+            if (!postUrl.startsWith(HTTP) && !postUrl.startsWith(HTTPS)) {
+                postUrl = HTTP + postUrl
+            }
 
-            intent = Intent(this@PostsAdapter, ListViewImage::class.java)
-            startActivity(intent)
-            finish()
-        }*/
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(postUrl))
+            mContext.startActivity(
+                Intent.createChooser(
+                    intent,
+                    "Choose browser"
+                )
+            )
+
+
+        }
     }
 
     override fun getItemCount() = posts.size

@@ -1,14 +1,13 @@
 package com.mt.armutcasestudy
 
 import android.annotation.SuppressLint
-import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mt.armutcasestudy.adapter.PopularAdapter
@@ -17,6 +16,7 @@ import com.mt.armutcasestudy.adapter.ServiceAdapter
 import com.mt.armutcasestudy.databinding.ActivityScrollingBinding
 import com.mt.armutcasestudy.viewmodel.ServiceViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class ScrollingActivity : AppCompatActivity() {
@@ -29,11 +29,17 @@ class ScrollingActivity : AppCompatActivity() {
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val w = window
+            w.setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
-        //supportActionBar?.hide()
-        val serviceTitles: Array<String> = resources.getStringArray(R.array.serviceTitles)
+
+       val serviceTitles: Array<String> = resources.getStringArray(R.array.serviceTitles)
         val serviceImages: Array<String> = resources.getStringArray(R.array.serviceImages)
         setUpRV(serviceTitles,serviceImages)
 
@@ -42,7 +48,7 @@ class ScrollingActivity : AppCompatActivity() {
     private fun setUpRV(serviceTitles: Array<String>, serviceImages: Array<String>) {
         serviceAdapter = ServiceAdapter(this,serviceTitles,serviceImages)
         popularAdapter= PopularAdapter()
-        postsAdapter = PostsAdapter()
+        postsAdapter = PostsAdapter(this)
         binding.recyclerView.apply {
             adapter = serviceAdapter
             layoutManager = GridLayoutManager(this@ScrollingActivity, 4)
@@ -63,11 +69,12 @@ class ScrollingActivity : AppCompatActivity() {
             )
             setHasFixedSize(true)
         }
+
         viewModel.responseHome.observe(this) { listService ->
             serviceAdapter.services = listService.all_services
             popularAdapter.popular=listService.popular
             postsAdapter.posts=listService.posts
-            Log.i("tag", listService.popular.toString())
+
         }
 
 

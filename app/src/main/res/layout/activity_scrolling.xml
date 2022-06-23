@@ -10,26 +10,27 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/header"
+        android:layout_height="400dp"
         android:fitsSystemWindows="true"
-        android:theme="@style/Theme.ArmutCaseStudy.AppBarOverlay">
+        android:backgroundTint="#F7F5F2">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/header"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
+            android:adjustViewBounds="true"
             app:expandedTitleMarginBottom="25dp"
             app:expandedTitleMarginStart="15dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
             app:toolbarId="@+id/toolbar"
+            android:background="@drawable/header"
             tools:ignore="ExtraText">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="parallax"
                 android:orientation="vertical">
 
                 <TextView
@@ -39,19 +40,21 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:scaleType="centerCrop"
                     android:text="@string/title"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
 
                 <SearchView
                     android:id="@+id/idSV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="50dp"
-                    android:background="@color/white"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rounded_searchbar"
                     android:commitIcon="@drawable/ic_searchs"
                     android:icon="@drawable/ic_searchs"
                     android:iconifiedByDefault="false"

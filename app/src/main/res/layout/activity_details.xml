@@ -8,10 +8,12 @@
         android:id="@+id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:layout_gravity="center"
+
         android:adjustViewBounds="true"
-        android:src="@drawable/test">
-    </ImageView>
+        android:padding="5dp"
+        android:src="@drawable/test"></ImageView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,16 +31,16 @@
                 android:padding="3dp"
                 android:src="@drawable/ic_icn_profesyonel_number_orange">
             </ImageView>
+
             <TextView
                 android:id="@+id/pros"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:paddingLeft="10dp"
                 android:gravity="center_vertical"
-                android:text="3.758 pros near you">
-            </TextView>
+                android:paddingLeft="10dp"
+                android:text="3.758 pros near you"
+                android:textSize="12sp"
+                android:textStyle="bold"></TextView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -165,6 +167,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -248,9 +251,11 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#25B459"
                 android:layout_marginHorizontal="40dp"
-                android:text="@string/devam"/>
+                android:backgroundTint="#25B459"
+                android:color="@color/white"
+                android:text="@string/devam"
+                android:textColor="@color/white" />
         </LinearLayout>
 
     </LinearLayout>
