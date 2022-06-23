@@ -7,4 +7,8 @@
     <string name="popular_these_days">Popular these days</string>
     <string name="posts">Latest from the blog</string>
     <string name="all_services">All Services</string>
+    <string name="how_it_works">How it works</string>
+    <string name="answer_the_questions">Answer the questions</string>
+    <string name="get_quotes">Get Quotes</string>
+    <string name="compare_the_prices_and_decide">Compare the Prices and Decide</string>
 </resources>

@@ -29,7 +29,7 @@ class ScrollingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
+        //supportActionBar?.hide()
         val serviceTitles: Array<String> = resources.getStringArray(R.array.serviceTitles)
         val serviceImages: Array<String> = resources.getStringArray(R.array.serviceImages)
         setUpRV(serviceTitles,serviceImages)
