@@ -1,12 +1,14 @@
 package com.mt.armutcasestudy
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mt.armutcasestudy.adapter.PopularAdapter
@@ -29,6 +31,7 @@ class ScrollingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
         //supportActionBar?.hide()
         val serviceTitles: Array<String> = resources.getStringArray(R.array.serviceTitles)
         val serviceImages: Array<String> = resources.getStringArray(R.array.serviceImages)
