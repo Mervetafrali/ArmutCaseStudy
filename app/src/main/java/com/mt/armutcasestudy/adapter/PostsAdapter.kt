@@ -5,14 +5,12 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.mt.armutcasestudy.databinding.PostsLayoutAdapterBinding
 import com.mt.armutcasestudy.model.Post
-import retrofit2.http.HTTP
 
 
 class PostsAdapter(var mContext: Context): RecyclerView.Adapter<PostsAdapter.MyViewHolder>() {
