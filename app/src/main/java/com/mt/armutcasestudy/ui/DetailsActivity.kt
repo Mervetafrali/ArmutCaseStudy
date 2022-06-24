@@ -29,13 +29,13 @@ class DetailsActivity : AppCompatActivity() {
     private fun setUp(serviceItem:ServiceItem){
         viewModel.responseService.observe(this){listAllService->
             val item: ServiceItem? =listAllService.firstOrNull{ it.id==serviceItem.id }
-            binding.imgItem.load(item?.image_url) {
+            binding.imgItem.load(item?.image_url?:serviceItem.image_url ) {
                 crossfade(true)
                 crossfade(1000)
             }
-            binding.prosItem.text= "${item?.pro_count} pros near you"
-            binding.avgItem.text= "${item?.average_rating} average rating"
-            binding.jobItem.text= "Last month ${item?.completed_jobs_on_last_month} ${item?.name} job complated"
+            binding.prosItem.text= "${item?.pro_count?:serviceItem.pro_count} pros near you"
+            binding.avgItem.text= "${item?.average_rating?:serviceItem.average_rating} average rating"
+            binding.jobItem.text= "Last month ${item?.completed_jobs_on_last_month?:serviceItem.completed_jobs_on_last_month} ${item?.name?:serviceItem.name} job complated"
 
         }
 
