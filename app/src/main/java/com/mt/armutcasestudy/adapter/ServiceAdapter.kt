@@ -3,16 +3,15 @@ package com.mt.armutcasestudy.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import com.mt.armutcasestudy.ui.DetailsActivity
 import com.mt.armutcasestudy.databinding.ServiceLayoutAdapterBinding
 import com.mt.armutcasestudy.model.AllService
-import com.mt.armutcasestudy.DetailsActivity
 
 
 class ServiceAdapter(var mContext: Context, var serviceTitles: Array<String>, var serviceImages: Array<String>) : RecyclerView.Adapter<ServiceAdapter.MyViewHolder>() {
@@ -58,7 +57,6 @@ class ServiceAdapter(var mContext: Context, var serviceTitles: Array<String>, va
         }
         val gson = Gson()
         holder.itemView.setOnClickListener{mView->
-           Log.i("deneme",currentItem.toString())
             intent.putExtra("service", gson.toJson(currentItem))
             mContext.startActivity(intent)
         }

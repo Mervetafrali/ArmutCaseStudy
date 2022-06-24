@@ -1,4 +1,4 @@
-package com.mt.armutcasestudy
+package com.mt.armutcasestudy.ui
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mt.armutcasestudy.R
 import com.mt.armutcasestudy.adapter.PopularAdapter
 import com.mt.armutcasestudy.adapter.PostsAdapter
 import com.mt.armutcasestudy.adapter.ServiceAdapter

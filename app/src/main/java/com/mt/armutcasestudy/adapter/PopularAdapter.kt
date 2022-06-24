@@ -1,18 +1,13 @@
 package com.mt.armutcasestudy.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.google.gson.Gson
 import com.mt.armutcasestudy.databinding.PopularLayoutAdapterBinding
-import com.mt.armutcasestudy.databinding.ServiceLayoutAdapterBinding
 import com.mt.armutcasestudy.model.Popular
-
-import com.mt.armutcasestudy.model.ServiceItem
 
 class PopularAdapter: RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
 
